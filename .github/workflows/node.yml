@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node.js CI #Integracion continua
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
       - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 25
 
       - name: Instalar dependencias
         run: npm install
