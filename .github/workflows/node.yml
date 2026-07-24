@@ -23,6 +23,10 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
+      # Genera el cliente de Prisma a partir del schema.prisma
+      - name: Generar cliente de Prisma
+        run: npx prisma generate
+
       - name: Ejecutar ESLint
         run: npm run lint
 
