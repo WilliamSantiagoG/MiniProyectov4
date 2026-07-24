@@ -1,0 +1,5 @@
+# No formatear las dependencias instaladas por npm
+node_modules
+
+# No formatear la base de datos SQLite de Prisma
+prisma/dev.db

@@ -1,0 +1,32 @@
+// Se define el modelo
+//Prisma Schema Language (PSL).
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  nombre   String
+  correo   String   @unique
+  password String
+  creado   DateTime @default(now())
+
+  tareas Tarea[] //Relacion de un usuario con muchas tareas
+}
+
+model Tarea {
+  id          Int      @id @default(autoincrement())
+  titulo      String
+  descripcion String   @default("")
+  completada  Boolean  @default(false)
+  prioridad   Int      @default(1)
+  creado      DateTime @default(now())
+
+  userId Int // Llave foránea que identifica al propietario.
+
+  usuario User @relation(fields: [userId], references: [id]) // Relacionar el id de la tarea con el id del usuario
+}

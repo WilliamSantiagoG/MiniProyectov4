@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <button onclick="probar()">Probar API</button>
+
+    <script>
+        async function probar() {
+
+            const respuesta = await fetch("http://localhost:3000/api/tareas", {
+                method: "GET",
+                headers: {
+                    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzg0NjYyMzE4LCJleHAiOjE3ODQ2NjU5MTh9.U_Fqzj_Zjo7L-Go2k2sxRMdPXfmpnqMZ36-agc1rJcg"
+                }
+            });
+
+            const datos = await respuesta.json();
+
+            console.log(datos);
+
+        }
+    </script>
+
+</body>
+
+</html>
