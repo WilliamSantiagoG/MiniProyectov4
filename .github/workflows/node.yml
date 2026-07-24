@@ -10,6 +10,11 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    # Variables de entorno para GitHub Actions
+    env:
+      DATABASE_URL: "file:./dev.db"
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
+
     steps:
 
       - name: Descargar repositorio
@@ -23,7 +28,6 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
-      # Genera el cliente de Prisma a partir del schema.prisma
       - name: Generar cliente de Prisma
         run: npx prisma generate
 
