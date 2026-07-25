@@ -10,4 +10,6 @@ API REST desarrollada con:
 - Swagger
 - Jest
 - Supertest
-
+- ESLint
+- Prettier
+- Winston
