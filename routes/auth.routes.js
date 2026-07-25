@@ -18,6 +18,7 @@ const router = express.Router();
 
 router.use(loggerMiddleware);
 
+
 /**
  * @swagger
  * /api/register:

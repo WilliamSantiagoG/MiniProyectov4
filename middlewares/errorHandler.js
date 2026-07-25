@@ -21,6 +21,8 @@ export const errorHandler = (err, req, res, _next) => {
 
     }
 
+
+
     // Error de Zod
     if (err.name === 'ZodError') {
 

@@ -18,6 +18,7 @@ export const loggerMiddleware = (req, res, next) => {
                   `[${timestamp}] ${method} ${url} - Estado: ${res.statusCode}`,
             );
 
+
       });
 
       next();
