@@ -1,44 +1,25 @@
 // middlewares/logger.js
+
+import logger from '../logger/logger.js';
+
 export const loggerMiddleware = (req, res, next) => {
-    const timestamp = new Date().toLocaleString();
-    const method = req.method;
-    const url = req.originalUrl;
 
-    console.log(`[${timestamp}] ${method} ${url}`);
+      const timestamp = new Date().toLocaleString();
+      const method = req.method;
+      const url = req.originalUrl;
 
-    // Se ejecuta cuando la respuesta ya fue enviada, para saber el estado codigo
-    //res es un objeto que hereda de un objeto llamado EventEmitter de Node.js.
-    res.on('finish', () => {
-        console.log(
-            `[${timestamp}] ${method} ${url} - Estado: ${res.statusCode}`,
-        );
-    });
+      // Registra la llegada de la petición
+      logger.info(`[${timestamp}] ${method} ${url}`);
 
-    // continuar
-    next();
+      // Se ejecuta cuando la respuesta ya fue enviada
+      res.on('finish', () => {
+
+            logger.info(
+                  `[${timestamp}] ${method} ${url} - Estado: ${res.statusCode}`,
+            );
+
+      });
+
+      next();
+
 };
-
-/* 
-Como funciona el res.on
-Cliente
-      │
-      ▼
-Logger
-      │
-      ▼
-Controller
-      │
-      ▼
-Service
-      │
-      ▼
-res.status(201).json(...)
-      │
-      ▼
-Se envía la respuesta
-      │
-      ▼
-Evento finish
-      │
-      ▼
-console.log(...)*/
