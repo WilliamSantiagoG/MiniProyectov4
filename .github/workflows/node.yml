@@ -1,3 +1,4 @@
+# Verifica automaticamente que el codigo siga funcionando correctamente cada vez que se sube un cambio.
 name: Node.js CI #Integracion continua
 
 on:
@@ -8,6 +9,7 @@ on:
 jobs:
   test:
 
+    #Crea una máquina virtual con Ubuntu
     runs-on: ubuntu-latest
 
     # Variables de entorno para GitHub Actions
