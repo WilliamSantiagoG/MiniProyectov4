@@ -2,13 +2,13 @@ import winston from 'winston';
 
 const logger = winston.createLogger({
 
-    level: 'info',
+    level: 'info', // Winston solo registrará los mensajes cuyo nivel sea igual o de mayor prioridad que info
 
     format: winston.format.combine(
 
-        winston.format.timestamp(),
+        winston.format.timestamp(),// Agrega automaticamente en formato fecha hora
 
-        winston.format.json(),
+        winston.format.json(), //hace que el log se guarde en formato JSON
 
     ),
 
@@ -34,3 +34,15 @@ const logger = winston.createLogger({
 });
 
 export default logger;
+
+/*
+Niveles de Winston:
+
+error   -> 0
+warn    -> 1
+info    -> 2
+http    -> 3
+verbose -> 4
+debug   -> 5
+silly   -> 6
+*/

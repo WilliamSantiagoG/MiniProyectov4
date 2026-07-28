@@ -8,7 +8,7 @@ export const errorHandler = (err, req, res, _next) => {
     // Registra el error con nivel ERROR usando Winston
     logger.error('ERROR GLOBAL', {
         mensaje: err.message,
-        stack: err.stack,
+        stack: err.stack, // donde ocurrio el error
     });
 
     // Error de JSON mal formado
